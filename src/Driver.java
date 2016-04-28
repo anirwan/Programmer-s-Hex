@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -20,8 +19,11 @@ public class Driver {
                 }
                 break;
             case 1:
+                char firstHub = currentHexagons.get(0).getValue(0);
+
                 for(int i = 0; i < 7; i++) {
-                    if(!currentHexagons.contains(hexagons[i])) {
+                    if(!currentHexagons.contains(hexagons[i])
+                        && hexagons[i].getPosition(firstHub) != -1) {
                         potentialHexagons.add(hexagons[i]);
                     }
                 }
@@ -34,8 +36,8 @@ public class Driver {
                 
                 for(int i = 0; i < 7; i++) {
                     if(!currentHexagons.contains(hexagons[i])
-                       && hexagons[i].getClockwiseValue(hubValue) == previousValue
-                       && (numberOfHexagons < 6 || hexagons[i].getCounterClockwiseValue(hubValue) == firstValue)) {
+                        && hexagons[i].getClockwiseValue(hubValue) == previousValue
+                        && (numberOfHexagons < 6 || hexagons[i].getCounterClockwiseValue(hubValue) == firstValue)) {
                         potentialHexagons.add(hexagons[i]);
                     }
                 }
@@ -74,7 +76,7 @@ public class Driver {
                         new Hexagon(new char[] {'D', 'F', 'E', 'C', 'A', 'B'}),
                         new Hexagon(new char[] {'F', 'E', 'D', 'A', 'B', 'C'}),
                         new Hexagon(new char[] {'A', 'F', 'D', 'E', 'B', 'C'}),
-                        new Hexagon(new char[] {'D', 'C', 'B', 'A', 'F', 'E'}),
+                        new Hexagon(new char[] {'D', 'C', 'B', 'A', 'E', 'F'}),
                         new Hexagon(new char[] {'A', 'C', 'B', 'E', 'F', 'D'}),
                         new Hexagon(new char[] {'A', 'F', 'E', 'D', 'C', 'B'})
                 };
