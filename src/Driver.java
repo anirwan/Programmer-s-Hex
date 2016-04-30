@@ -66,11 +66,11 @@ public class Driver {
     
     static Hexagon rotate(ArrayList<Hexagon> currentHexagons, Hexagon hex) {
         int piecePosition;
-        int offset = 3;
+        int offset = hex.sides.length / 2;
         char hubValue = currentHexagons.get(0).getValue(currentHexagons.size() - 1);
         int hubPosition = currentHexagons.get(0).getPosition(hubValue);
 
-        if(hubPosition < 3) {
+        if(hubPosition < offset) {
             piecePosition = hubPosition + offset;
         } else {
             piecePosition = hubPosition - offset;
